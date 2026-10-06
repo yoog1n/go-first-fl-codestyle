@@ -23,26 +23,28 @@ func attack(charName, charClass string) string {
 
 // обратите внимание на "if else" и на "else"
 func defence(char_name, char_class string) string {
-	if char_class == "warrior" {
+	switch char_class {
+	case "warrior":
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(5, 10))
-	} else if char_class == "mage" {
+	case "mage":
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(-2, 2))
-	} else if char_class == "healer" {
+	case "healer":
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(2, 5))
-	} else {
+	default:
 		return "неизвестный класс персонажа"
 	}
 }
 
 // обратите внимание на "if else" и на "else"
 func special(charName, charClass string) string {
-	if charClass == "warrior" {
+	switch charClass {
+	case "warrior":
 		return fmt.Sprintf("%s применил специальное умение `Выносливость %d`", charName, 80+25)
-	} else if charClass == "mage" {
+	case "mage":
 		return fmt.Sprintf("%s применил специальное умение `Атака %d`", charName, 5+40)
-	} else if charClass == "healer" {
+	case "healer":
 		return fmt.Sprintf("%s применил специальное умение `Защита %d`", charName, 10+30)
-	} else {
+	default:
 		return "неизвестный класс персонажа"
 	}
 }
@@ -54,6 +56,7 @@ func start_training(char_name, char_class string) string {
 	}
 
 	if char_class == "mage" {
+
 		fmt.Printf("%s, ты Маг - превосходный укротитель стихий.\n", char_name)
 	}
 
@@ -96,11 +99,12 @@ func choise_char_class() string {
 	for approve_choice != "y" {
 		fmt.Print("Введи название персонажа, за которого хочешь играть: Воитель — warrior, Маг — mage, Лекарь — healer: ")
 		fmt.Scanf("%s\n", &char_class)
-		if char_class == "warrior" {
+		switch char_class {
+		case "warrior":
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-		} else if char_class == "mage" {
+		case "mage":
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-		} else if char_class == "healer" {
+		case "healer":
 			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
