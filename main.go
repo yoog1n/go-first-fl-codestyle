@@ -21,7 +21,6 @@ func attack(charName, charClass string) string {
 	return "неизвестный класс персонажа"
 }
 
-// обратите внимание на "if else" и на "else"
 func defence(char_name, char_class string) string {
 	switch char_class {
 	case "warrior":
@@ -35,7 +34,6 @@ func defence(char_name, char_class string) string {
 	}
 }
 
-// обратите внимание на "if else" и на "else"
 func special(charName, charClass string) string {
 	switch charClass {
 	case "warrior":
